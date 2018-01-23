@@ -35,16 +35,19 @@ void loop()
   }
   else //  Ansonsten…
   {
+    Serial.print("Entfernung: ");
+    Serial.print(entfernung); //…soll der Wert der Entfernung an den serial monitor hier ausgegeben werden.
+    Serial.print(" cm - Pumpe "); // Hinter dem Wert der Entfernung soll auch am Serial Monitor die Einheit "cm" angegeben werden.
     if (entfernung < mindistance) 
     {
+      Serial.println("AN");
       // starte Pumpe
     }
     else
     {
+      Serial.println("AUS");
       // stope Pumpe
     }
-    Serial.print(entfernung); //…soll der Wert der Entfernung an den serial monitor hier ausgegeben werden.
-    Serial.println(" cm"); // Hinter dem Wert der Entfernung soll auch am Serial Monitor die Einheit "cm" angegeben werden.
   }
   delay(messintervall); //Das delay von einer Sekunde sorgt in ca. jeder neuen Sekunde für einen neuen Messwert.
 }
