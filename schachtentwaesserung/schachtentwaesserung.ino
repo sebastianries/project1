@@ -19,7 +19,7 @@ void setup()
   pinMode(pin_distance_trigger, OUTPUT); // pin_distance_trigger-Pin ist ein Ausgang
   pinMode(pin_distance_echo, INPUT); // pin_distance_echo-Pin ist ein Eingang
   pinMode(pin_relais, OUTPUT);
-  digitalWrite(pin_relais, LOW); //disable pump on startup
+  digitalWrite(pin_relais, HIGH); //disable pump on startup
 }
 
 
@@ -35,6 +35,7 @@ void loop()
   if (entfernung >= 500 || entfernung <= 0) //Wenn die gemessene Entfernung über 500cm oder unter 0cm liegt,…
   {
     Serial.println("Kein Messwert"); //dann soll der serial monitor ausgeben „Kein Messwert“, weil Messwerte in diesen Bereichen falsch oder ungenau sind.
+    digitalWrite(pin_relais, HIGH);
   }
   else //  Ansonsten…
   {
@@ -45,13 +46,13 @@ void loop()
     {
       Serial.println("AN");
       // starte Pumpe
-      digitalWrite(pin_relais, HIGH);
+      digitalWrite(pin_relais, LOW);
     }
     else
     {
       Serial.println("AUS");
       // stoppe Pumpe
-      digitalWrite(pin_relais, LOW);
+      digitalWrite(pin_relais, HIGH);
     }
   }
   delay(messintervall); //Das delay von einer Sekunde sorgt in ca. jeder neuen Sekunde für einen neuen Messwert.
