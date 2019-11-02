@@ -6,7 +6,7 @@ int pin_relais=8; //Relais-Trigger on Pin8 des Arduino-Boards
 
 // define constants
 int messintervall=10000; //Messintervall in Millisekunden
-int mindistance=30; //Minimaldistanz zum Entfernungsmesser in cm
+int mindistance=15; //Minimaldistanz zum Entfernungsmesser in cm
 
 // define variables
 long dauer=0; // Das Wort dauer ist jetzt eine Variable, unter der die Zeit gespeichert wird, die eine Schallwelle bis zur Reflektion und zurück benötigt. Startwert ist hier 0.
